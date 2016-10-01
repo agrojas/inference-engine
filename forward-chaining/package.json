@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "inference engine with forward chaining",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "start": "node index.js",
     "test": "node test/test-index.js"
   },
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/agrojas/inference-engine/issues"
   },
-  "homepage": "https://github.com/agrojas/inference-engine#readme"
+  "homepage": "https://github.com/agrojas/inference-engine#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
 }

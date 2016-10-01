@@ -1,0 +1,12 @@
+{
+	"rules": [
+		{
+			"name": "rule 1",
+			"predicate":"a && b => c"
+		},
+		{
+			"name": "rule 2",
+			"predicate":"b && !c => a"
+		}
+	]
+}
