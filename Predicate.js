@@ -2,6 +2,7 @@
 
 function Predicate(data) {
 
+
 	function processArguments(data) {
 
 		var separators = {
@@ -23,11 +24,15 @@ function Predicate(data) {
 		var acts = dataSplit[0];   	
 		for (var separator of separators.logics) {
 			var act = acts.split(separator);
-				console.log(act);
+			for (var separator of separators.logics) {
+				
+			}
+			console.log(act);
 			if (act[1] != undefined) {
+				
 				args.acts.push(act)
 				// console.log(separator);
-			}
+			} 
 		}
 		console.log('*********************************');
 		return args;
