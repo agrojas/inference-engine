@@ -23,9 +23,22 @@ var RulesManager = function () {
 		console.log(rule)
 	}
 
+	this.searchRulesThatMatchHowInitialKnowledge = function() {
+
+	}
+
 	this.fire = function() {
+
+		// var selectedRules = this.searchRulesThatMatchHowInitialKnowledge();
+
 		for (var rule of this.rules) {
-			console.log(rule);
+			console.log(rule.name);
+			console.log(rule.predicate.arguments.results);
+			for (var act of rule.predicate.arguments.acts) {
+				console.log(act);
+
+			}
+			
 		}
 	}
 }

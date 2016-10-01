@@ -6,7 +6,7 @@
 		},
 		{
 			"name": "rule 2",
-			"predicate":"b && !c => a"
+			"predicate":"b || !c => a"
 		}
 	]
 }
