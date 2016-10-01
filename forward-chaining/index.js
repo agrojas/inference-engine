@@ -4,6 +4,7 @@ var RulesLoader = require('./RulesLoader');
 var RulesManager = require('./RulesManager');
 
 function main () {
+	
 	var settings =  {
 		rulesPath: './rules.json'
 	}
@@ -13,8 +14,8 @@ function main () {
 	
 	rulesLoader.loadRules();
 	rulesManager.setRules(rulesLoader.getRules());
-	
-	console.log(rulesManager.getRules())
+
+	rulesManager.fire();		
 
 
 }

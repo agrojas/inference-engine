@@ -6,6 +6,7 @@ var RulesLoader = function (file_path) {
 	
 	this.file_path = file_path;
 	this.data = null;
+  
 	this.loadRules = function () {
     	var contents = fs.readFileSync(this.file_path).toString();
     	// TODO: chequear excepciones

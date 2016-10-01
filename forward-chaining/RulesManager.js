@@ -1,13 +1,19 @@
 "use strict";
 
+var Rule = require('./Rule');
+var Conclusion = require('./Conclusion');
 
-var RuleManager = function () {
+
+var RulesManager = function () {
 	
 	this.rules = [];
-	this.conclusion = null;
+	this.initialKnowledge = [];
+	this.conclusion = new Conclusion();
 
 	this.setRules = function(rules) {
-		this.rules = rules;
+		for (var rule of rules) {
+			this.rules.push(new Rule(rule))
+		}
 	}
   	this.getRules = function () { 
   		return this.rules;
@@ -18,10 +24,10 @@ var RuleManager = function () {
 	}
 
 	this.fire = function() {
-		this.rules.foreach(function(rule) {
+		for (var rule of this.rules) {
 			console.log(rule);
-		})
+		}
 	}
 }
 
-module.exports = RuleManager;
+module.exports = RulesManager;

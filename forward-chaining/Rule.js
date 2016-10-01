@@ -1,8 +1,11 @@
 "use strict";
 
-function Rule() {
+var Predicate = require('./Predicate');
+
+function Rule(data) {
 	
-	this.predicate = "";
+	this.name = data.name;
+	this.predicate = new Predicate(data.predicate);
 }
 
 
