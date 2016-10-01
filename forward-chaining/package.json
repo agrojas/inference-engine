@@ -1,0 +1,28 @@
+{
+  "name": "inference-engine",
+  "version": "1.0.0",
+  "description": "inference engine with forward chaining",
+  "main": "index.js",
+  "scripts": { 
+    "start": "node index.js",
+    "test": "node test/test-index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrojas/inference-engine.git"
+  },
+  "keywords": [
+    "engine",
+    "inference",
+    "forward",
+    "chaining",
+    "system",
+    "expert"
+  ],
+  "author": "agrojas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agrojas/inference-engine/issues"
+  },
+  "homepage": "https://github.com/agrojas/inference-engine#readme"
+}
