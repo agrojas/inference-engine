@@ -2,10 +2,30 @@
 
 var Rule = require('./Rule');
 var Conclusion = require('./Conclusion');
+var BackwardStrategy = require('./backward-chaining/BackwardStrategy');
+var ForwardStrategy = require('./forward-chaining/ForwardStrategy');
 
+var AlgorithmFactory = function(executionType) {
 
-var RulesManager = function () {
+	this.getAlgorithm = function (executionType)  {
+
+		if (executionType == "b") {
+			return new BackwardStrategy();
+		} else if (executionType == "f") {
+			return new ForwardStrategy();
+		} 
+
+		return null;
+	}
 	
+}
+
+
+var RulesManager = function (executionType) {
+
+	var algorithmFactory = new AlgorithmFactory();
+	
+	this.algorithm = algorithmFactory.getAlgorithm(executionType);
 	this.rules = [];
 	this.initialKnowledge = [];
 	this.conclusion = new Conclusion();
@@ -15,31 +35,13 @@ var RulesManager = function () {
 			this.rules.push(new Rule(rule))
 		}
 	}
+
   	this.getRules = function () { 
   		return this.rules;
   	}
 
-	this.evaluateRule = function(rule) {
-		console.log(rule)
-	}
-
-	this.searchRulesThatMatchHowInitialKnowledge = function() {
-
-	}
-
 	this.fire = function() {
-
-		// var selectedRules = this.searchRulesThatMatchHowInitialKnowledge();
-
-		for (var rule of this.rules) {
-			console.log(rule.name);
-			console.log(rule.predicate.arguments.results);
-			for (var act of rule.predicate.arguments.acts) {
-				console.log(act);
-
-			}
-			
-		}
+		return this.algorithm.fire(this.rules);
 	}
 }
 
