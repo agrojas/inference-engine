@@ -18,6 +18,10 @@ app.get('/fire', function (req, res) {
 	rulesManager.fire();		
 });
 
+app.get('/rules', function (req, res) {
+  	res.send(rulesLoader.getRules());
+});
+
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
