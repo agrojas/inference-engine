@@ -11,7 +11,7 @@ var RulesLoader = function (file_path) {
     	var contents = fs.readFileSync(this.file_path).toString();
     	// TODO: chequear excepciones
     	this.data = JSON.parse(contents);
-  	}
+    }
 
   	this.getRules = function () { 
   		return this.data.rules;

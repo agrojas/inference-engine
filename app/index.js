@@ -7,7 +7,7 @@ var RulesManager = require('./RulesManager');
 function main () {
 	
 	var settings =  {
-		rulesPath: './rules.json',
+		rulesPath: '../resources/rules.json',
 		executionType: 'f'
 	}
 
