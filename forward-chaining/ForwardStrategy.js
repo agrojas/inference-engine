@@ -2,6 +2,8 @@
 
 function ForwardStrategy() {
 
+	console.info('ForwardStrategy');
+
 	this.evaluateRule = function(rule) {
 		console.log(rule)
 	}

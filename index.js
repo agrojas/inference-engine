@@ -16,7 +16,7 @@ function main () {
 	rulesLoader.loadRules();
 	rulesManager.setRules(rulesLoader.getRules());
 
-	rulesManager.fire();		
+	// rulesManager.fire();		
 
 
 }

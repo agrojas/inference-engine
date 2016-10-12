@@ -1,12 +1,21 @@
 {
 	"rules": [
 		{
-			"name": "rule 1",
-			"predicate":"a && b => c"
-		},
-		{
-			"name": "rule 2",
-			"predicate":"b || !c => a"
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"dog"
+			},
+			"consecuence": {
+				"fieldName": "legsQuantity", 
+				"value": "4"
+			},
+			"rule": {
+				"name":"All dogs have 4 legs",				
+				"conditionObject": {
+					"animal":"dog"
+				},
+				"fields":["animal"]
+			}
 		}
 	]
 }
