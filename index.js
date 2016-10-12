@@ -1,7 +1,11 @@
 "use strict";
 
+var express = require('express');
+var app = express();
+
 var RulesLoader = require('./RulesLoader');
 var RulesManager = require('./RulesManager');
+
 
 function main () {
 	
