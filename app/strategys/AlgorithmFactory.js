@@ -5,16 +5,16 @@ var ForwardStrategy = require('./forward-chaining/ForwardStrategy');
 
 
 var AlgorithmFactory = function(executionType) {	
-	this.getAlgorithm = function (executionType)  {
+	this.executionType = executionType;
+}
 
-		if (executionType == "b") {
-			return new BackwardStrategy();
-		} else if (executionType == "f") {
-			return new ForwardStrategy();
-		} 
-
-		return null;
-	}
+AlgorithmFactory.prototype.getAlgorithm = function(){
+	if (this.executionType == "b") {
+		return new BackwardStrategy();
+	} else if (this.executionType == "f") {
+		return new ForwardStrategy();
+	} 
+	return null;
 }
 
 module.exports = AlgorithmFactory;

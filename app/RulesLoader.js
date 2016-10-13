@@ -1,5 +1,4 @@
 "use strict";
-
 var fs = require('fs');
 
 var RulesLoader = function (file_path) {

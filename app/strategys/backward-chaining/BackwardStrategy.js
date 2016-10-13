@@ -49,34 +49,22 @@ class BackwardChainingInferenceEngine(InferenceEngine):
 
         return False
 */
-function BackwardStrategy(data) {
-	
-	console.info('BackwardStrategy');
+var InferenceEngine = require('../InferenceEngine');
 
-	this.evaluateRule = function(rule) {
-		console.log(rule)
-	}
+BackwardStrategy.prototype = new InferenceEngine();
 
-	this.searchRulesThatMatchHowInitialKnowledge = function() {
+function BackwardStrategy(){ 
+    this.hypothesis = null;
+} 
 
-	}
-
-	this.fire = function(rules) {
-		// var selectedRules = this.searchRulesThatMatchHowInitialKnowledge();
-		this.rules = rules;
-		for (var rule of this.rules) {
-			console.log(rule.name);
-			console.log(rule.predicate.arguments.results);
-			for (var act of rule.predicate.arguments.acts) {
-				console.log(act);
-
-			}
-			
-		}
-	}
-
+BackwardStrategy.prototype.setHypothesis = function(hypothesis){ 
+    this.hypothesis = hypothesis;
 }
 
+BackwardStrategy.prototype.run = function(){ 
+    console.log("BackwardStrategy run");
+    console.log(this.ruleSet)
+} 
 
 
 module.exports = BackwardStrategy;

@@ -1,33 +1,44 @@
 "use strict";
 
-function ForwardStrategy() {
+/*class ForwardChainingInferenceEngine(InferenceEngine):
+    def run_engine(self):
+        applying_rules = set(self.rule_set.get_applying_rules(self.knowledge_base.get_subject()))
+        applied_rules = set()
 
-	console.info('ForwardStrategy');
+        iterations = 1
 
-	this.evaluateRule = function(rule) {
-		console.log(rule)
-	}
+        logger.info('STARTING forward chaining algorithm')
+        logger.debug('Initial Knowledge: {}\n'.format(self.knowledge_base.get_subject()))
+        while len(applying_rules) > 0:
+            logger.debug('ITERATION {}'.format(iterations))
+            logger.debug('There are {} rules to apply. Using the first one'.format(len(applying_rules)))
+            first_rule = list(applying_rules)[0]
 
-	this.searchRulesThatMatchHowInitialKnowledge = function() {
+            logger.debug('Evaluating rule {} : {}'.format(first_rule.name, first_rule.condition_object))
+            result = first_rule.evaluate(self.knowledge_base.get_subject())
+            logger.debug('Result: {}'.format(result))
+            logger.debug('Partial Knowledge: {}\n'.format(self.knowledge_base.get_subject()))
 
-	}
+            applied_rules.add(first_rule)
+
+            applying_rules = set(self.rule_set.get_applying_rules(self.knowledge_base.get_subject())).difference(
+                applied_rules)
+            iterations += 1
+
+        logger.info('Forward chaining algorithm took {} iterations'.format(iterations - 1))
+        return True
+*/
+var InferenceEngine = require('../InferenceEngine');
+
+ForwardStrategy.prototype = new InferenceEngine();
+
+function ForwardStrategy(){ 
+} 
 
 
-	this.fire = function(rules) {
-		// var selectedRules = this.searchRulesThatMatchHowInitialKnowledge();
-		this.rules = rules;
-		for (var rule of this.rules) {
-			console.log(rule.name);
-			console.log(rule.predicate.arguments.results);
-			for (var act of rule.predicate.arguments.acts) {
-				console.log(act);
-
-			}
-			
-		}
-	}
-}
-
-
+ForwardStrategy.prototype.run = function(){ 
+	console.log("ForwardStrategy run");
+	console.log(this.ruleSet)
+} 
 
 module.exports = ForwardStrategy;

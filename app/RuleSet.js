@@ -31,7 +31,32 @@ class RuleSet:
         return filter(rule_applies, self.rules.values())*/
 "use strict";
 
+var Rule = require('./Rule');
+
 function RuleSet() {
+    this.rules = {};
+    this.rulesTree = {};
+}
+
+RuleSet.prototype.addRule = function(data){
+    if (this.rules[data.rule.name] != undefined) {
+        throw new Exception("Duplicate Rule Exception")
+    }
+    this.rules[data.rule.name] = new Rule(data);
+
+    //TODO: Chequear esto
+    if (this.rulesTree[data.rule.fields] == undefined) {
+        this.rulesTree[data.rule.fields] = data; // ???
+    } else {
+        this.rulesTree[data.rule.fields].push(data);
+    }
+}
+
+RuleSet.prototype.getApplyingRules = function(subject){
+    //TODO: Chequear esto
+    return this.rules.values().filter(function(rule){
+        return rule.validateFields(subject);
+    });
 }
 
 
