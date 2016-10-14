@@ -26,9 +26,12 @@ function KnowledgeBase() {
 }
 //TODO: REVISAR
 KnowledgeBase.prototype.addKnowledge = function(newKnowledge) {
-	if (this.knowledge[new_knowledge]) {
+	if (this.knowledge[new_knowledge] == undefined) {
 		Object.assign(knowledge, newKnowledge);
-	}
+	} else {
+        throw new Error("Duplicated KnowledgeException")
+    }
+
 }
 
 KnowledgeBase.prototype.getSubject = function() {

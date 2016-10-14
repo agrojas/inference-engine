@@ -26,7 +26,7 @@ Rule.prototype.evaluate = function(subject) {
 Rule.prototype.validateFields = function(subject) {
 	for (var field of this.fields) {
 		if (subject[field] == undefined)
-			throw new Exception("Rule does not apply to subject")
+			throw new Error("Rule does not apply to subject");
 	}
 }
 

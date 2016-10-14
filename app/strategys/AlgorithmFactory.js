@@ -14,7 +14,7 @@ AlgorithmFactory.prototype.getAlgorithm = function(){
 	} else if (this.executionType == "f") {
 		return new ForwardStrategy();
 	} 
-	return null;
+	throw new Error("Invalid Algorithm Type")
 }
 
 module.exports = AlgorithmFactory;

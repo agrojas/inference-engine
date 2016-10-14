@@ -35,10 +35,33 @@ ForwardStrategy.prototype = new InferenceEngine();
 function ForwardStrategy(){ 
 } 
 
+Array.prototype.diff = function(a) {
+    return this.filter(function(i) {return a.indexOf(i) < 0;});
+};
 
 ForwardStrategy.prototype.run = function(){ 
-	console.log("ForwardStrategy run");
-	console.log(this.ruleSet)
+    console.log("ForwardStrategy run");
+    console.log(this.ruleSet)
+    var applyingRules = this.ruleSet.getApplyingRules(this.knowledgeBase.getSubject());
+    var appliedRules = [];
+    var iterations = 1;
+    
+    console.log('STARTING forward chaining algorithm')
+    console.log("Initial Knowledge:",this.knowledgeBase.getSubject());
+    
+    while (applyingRules.length() > 0) {
+        console.log('ITERATION ', iterations);
+        console.log("There are " ,applyingRules.length(), " rules to apply. Using the first one");
+        var firstRule = applyingRules[0];
+        console.log('Evaluating rule ',firstRule.name,' : ' ,firstRule.conditionObject)
+        var result = firstRule.evaluate(this.knowledgeBase.getSubject());
+        console.log('Result: ',result)
+        console.log('Partial Knowledge: ',this.knowledgeBase.getSubject())
+        appliedRules.push(firstRule);
+        applyingRules = this.ruleSet.getApplyingRules(this.knowledgeBase.getSubject()).diff(appliedRules);
+        iterations++
+    }
+    console.log('Forward chaining algorithm took ',iterations - 1,' iterations')
 } 
 
 module.exports = ForwardStrategy;

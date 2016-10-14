@@ -39,8 +39,9 @@ function RuleSet() {
 }
 
 RuleSet.prototype.addRule = function(data){
+    
     if (this.rules[data.rule.name] != undefined) {
-        throw new Exception("Duplicate Rule Exception")
+        throw new Error("Duplicate Rule Exception")
     }
     this.rules[data.rule.name] = new Rule(data);
 
@@ -52,9 +53,19 @@ RuleSet.prototype.addRule = function(data){
     }
 }
 
+Object.values = function (obj) {
+    var vals = [];
+    for( var key in obj ) {
+        if ( obj.hasOwnProperty(key) ) {
+            vals.push(obj[key]);
+        }
+    }
+    return vals;
+}
+
 RuleSet.prototype.getApplyingRules = function(subject){
     //TODO: Chequear esto
-    return this.rules.values().filter(function(rule){
+    return Object.values(this.rules).filter(function(rule){
         return rule.validateFields(subject);
     });
 }
