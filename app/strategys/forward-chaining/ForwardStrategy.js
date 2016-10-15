@@ -61,9 +61,9 @@ ForwardStrategy.prototype.run = function(){
         var firstRule = applyingRules[0];
         console.log('Evaluating rule ',firstRule.name,' : ' ,firstRule.conditionObject)
         var result = firstRule.evaluate(this.knowledgeBase.getKnowledgeBase());
-        // if (result) {
+        if (result) {
             this.knowledgeBase.addKnowledge(firstRule.conditionObject)
-        // }
+        }
         console.log('Result: ',result)
         console.log('Partial Knowledge: ',this.knowledgeBase.getKnowledgeBase())
         appliedRules.push(firstRule);
