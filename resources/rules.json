@@ -1,3 +1,5 @@
+
+
 {
 	"rules": [
 		{
@@ -15,6 +17,182 @@
 					"animal":"dog"
 				},
 				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"spider"
+			},
+			"consecuence": {
+				"fieldName": "legsQuantity", 
+				"value": "8"
+			},
+			"rule": {
+				"name":"All spiders have 8 legs",				
+				"conditionObject": {
+					"animal":"spider"
+				},
+				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"ostrich"
+			},
+			"consecuence": {
+				"fieldName": "legsQuantity", 
+				"value": "2"
+			},
+			"rule": {
+				"name":"All ostriches have 2 legs",				
+				"conditionObject": {
+					"animal":"ostrich"
+				},
+				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"legsQuantity",
+				"equalsTo":"4"
+			},
+			"consecuence": {
+				"fieldName": "locomotion", 
+				"value": "quadruped"
+			},
+			"rule": {
+				"name":"Anything with 4 legs is a quadruped",				
+				"conditionObject": {
+					"legsQuantity":"4"
+				},
+				"fields":["legsQuantity"]
+			}
+		},{
+			"condition": {
+				"subjectName":"legsQuantity",
+				"equalsTo":"2"
+			},
+			"consecuence": {
+				"fieldName": "locomotion", 
+				"value": "biped"
+			},
+			"rule": {
+				"name":"Anything with 2 legs is a biped",				
+				"conditionObject": {
+					"legsQuantity":"2"
+				},
+				"fields":["legsQuantity"]
+			}
+		},{
+			"condition": {
+				"subjectName":"legsQuantity",
+				"equalsTo":"8"
+			},
+			"consecuence": {
+				"fieldName": "locomotion", 
+				"value": "octoped"
+			},
+			"rule": {
+				"name":"Anything with 8 legs is a octoped",				
+				"conditionObject": {
+					"legsQuantity":"8"
+				},
+				"fields":["legsQuantity"]
+			}
+		},{
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"dog"
+			},
+			"consecuence": {
+				"fieldName": "class", 
+				"value": "mammal"
+			},
+			"rule": {
+				"name":"All dogs are mammals",				
+				"conditionObject": {
+					"animal":"dog"
+				},
+				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"spider"
+			},
+			"consecuence": {
+				"fieldName": "class", 
+				"value": "insect"
+			},
+			"rule": {
+				"name":"All spider are insects",				
+				"conditionObject": {
+					"animal":"insect"
+				},
+				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"animal",
+				"equalsTo":"ostrich"
+			},
+			"consecuence": {
+				"fieldName": "class", 
+				"value": "bird"
+			},
+			"rule": {
+				"name":"All birds are birds",				
+				"conditionObject": {
+					"animal":"insect"
+				},
+				"fields":["animal"]
+			}
+		},{
+			"condition": {
+				"subjectName":"class",
+				"equalsTo":"mammal"
+			},
+			"consecuence": {
+				"fieldName": "skin", 
+				"value": "hair"
+			},
+			"rule": {
+				"name":"All mammal have hair",				
+				"conditionObject": {
+					"class":"mammal"
+				},
+				"fields":["class"]
+			}
+		},{
+			"condition": {
+				"subjectName":"class",
+				"equalsTo":"insect"
+			},
+			"consecuence": {
+				"fieldName": "skin", 
+				"value": "chitin"
+			},
+			"rule": {
+				"name":"All insect have chitin",				
+				"conditionObject": {
+					"class":"insect"
+				},
+				"fields":["class"]
+			}
+		},{
+			"condition": {
+				"subjectName":"class",
+				"equalsTo":"bird"
+			},
+			"consecuence": {
+				"fieldName": "skin", 
+				"value": "feathers"
+			},
+			"rule": {
+				"name":"All bird have feathers",				
+				"conditionObject": {
+					"class":"bird"
+				},
+				"fields":["class"]
 			}
 		}
 	]
