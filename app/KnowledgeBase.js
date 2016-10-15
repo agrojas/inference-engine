@@ -2,7 +2,8 @@
 
 
 function KnowledgeBase() {
-	this.knowledges = [{animal: 'dog'}];
+	// this.knowledges = [{animal: 'dog'}];
+	this.knowledges = [];
 }
 
 //TODO: REVISAR
