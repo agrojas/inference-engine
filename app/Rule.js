@@ -25,7 +25,6 @@ Rule.prototype.evaluate = function(knowledgeBases) {
 }
 
 Rule.prototype.validateFields = function(knowledgeBase) {
-	// console.log('knowledgeBase',knowledgeBase);
 	for (var field of this.fields) {
 		if (knowledgeBase[field] != undefined)
 			return true;
