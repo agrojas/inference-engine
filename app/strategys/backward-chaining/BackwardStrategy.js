@@ -63,7 +63,6 @@ BackwardStrategy.prototype.setHypothesis = function(hypothesis){
 
 BackwardStrategy.prototype.run = function(){ 
     console.log("BackwardStrategy run");
-    console.log(this.ruleSet)
 } 
 
 

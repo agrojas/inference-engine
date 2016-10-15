@@ -16,7 +16,8 @@ function main () {
 	rulesManager.setRules(rulesLoader.getRules());
 	/* */
 	rulesManager.run();		
-
+	console.log('Final Knowledge')
+    console.log(rulesManager.getKnowledgeBase())
 }
 
 main();

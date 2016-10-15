@@ -43,11 +43,12 @@ RuleSet.prototype.addRule = function(data){
     if (this.rules[data.rule.name] != undefined) {
         throw new Error("Duplicate Rule Exception")
     }
+
     this.rules[data.rule.name] = new Rule(data);
 
     //TODO: Chequear esto
     if (this.rulesTree[data.rule.fields] == undefined) {
-        this.rulesTree[data.rule.fields] = data; // ???
+        this.rulesTree[data.rule.fields] = [data];
     } else {
         this.rulesTree[data.rule.fields].push(data);
     }
@@ -63,11 +64,15 @@ Object.values = function (obj) {
     return vals;
 }
 
-RuleSet.prototype.getApplyingRules = function(subject){
+RuleSet.prototype.getApplyingRules = function(knowledgeBases){
     //TODO: Chequear esto
-    return Object.values(this.rules).filter(function(rule){
-        return rule.validateFields(subject);
-    });
+    var  applyingRules = [];
+    for (var knowledgeBase of knowledgeBases) {
+        applyingRules = Object.values(this.rules).filter(function(rule){
+            return rule.validateFields(knowledgeBase);
+        }); 
+    }
+    return applyingRules;
 }
 
 

@@ -13,21 +13,25 @@ function Rule(data) {
 
 }
 
-Rule.prototype.evaluate = function(subject) {
-	var ruleSuccess = this.condition.evaluate(subject);
-
-	if (ruleSuccess) {
-		this.consecuence.apply(subject);
+Rule.prototype.evaluate = function(knowledgeBases) {
+	var ruleSuccess = false;
+	for (var knowledgeBase of knowledgeBases) {
+		ruleSuccess = this.condition.evaluate(knowledgeBase);
+		if (ruleSuccess) {
+			this.consecuence.apply(knowledgeBase);
+		}
 	}
-
 	return ruleSuccess;
 }
 
-Rule.prototype.validateFields = function(subject) {
+Rule.prototype.validateFields = function(knowledgeBase) {
+	// console.log('knowledgeBase',knowledgeBase);
 	for (var field of this.fields) {
-		if (subject[field] == undefined)
-			throw new Error("Rule does not apply to subject");
+		if (knowledgeBase[field] != undefined)
+			return true;
+			// throw new Error("Rule does not apply to subject ");
 	}
+	return false;
 }
 
 Rule.prototype.hasConsequence = function(testConsequence) {

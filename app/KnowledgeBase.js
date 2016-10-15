@@ -22,20 +22,22 @@ class KnowledgeBase:
 */
 
 function KnowledgeBase() {
-	this.knowledge = {};
+    // this.knowledge = {};
+	this.knowledges = [{animal: 'dog'}];
 }
 //TODO: REVISAR
 KnowledgeBase.prototype.addKnowledge = function(newKnowledge) {
-	if (this.knowledge[new_knowledge] == undefined) {
-		Object.assign(knowledge, newKnowledge);
-	} else {
-        throw new Error("Duplicated KnowledgeException")
+    
+    for (var knowledge of this.knowledges) {
+        if (knowledge == newKnowledge) {
+            return;
+        }
     }
-
+    this.knowledges.push(newKnowledge);
 }
 
-KnowledgeBase.prototype.getSubject = function() {
-	return this.knowledge;
+KnowledgeBase.prototype.getKnowledgeBase = function() {
+	return this.knowledges;
 }
 
 
