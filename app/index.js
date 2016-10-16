@@ -11,14 +11,19 @@ function validateArgs(args) {
 function main () {
 	
 	const optionDefinitions = [
+	  { name: "help", alias: 'h' },
 	  { name: 'rulesPath', alias: 'r', type: String ,defaultValue:'../resources/rules.json'},
 	  { name: 'KnowledgeBasePath', alias: 'k', type: String ,defaultValue:'../resources/KnowledgeBase.json'},
 	  { name: 'executionType', alias: 't', type: String },
 	  { name: 'resultPath', alias: 's', type: String ,defaultValue:'../resources/result.json'},
-	  { name: 'hypothesisPath', alias: 'h', type: String ,defaultValue:'../resources/hypothesis.json'}
+	  { name: 'hypothesisPath', alias: 'p', type: String ,defaultValue:'../resources/hypothesis.json'}
 	];
-	
+
 	const options = commandLineArgs(optionDefinitions)
+	if (options.help != undefined) {
+		console.log(optionDefinitions)
+		return;
+	}
 	validateArgs(options);
 
 	var rulesLoader = new RulesLoader();
