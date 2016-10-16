@@ -39,6 +39,13 @@ ForwardStrategy.prototype.run = function(){
         iterations++
     }
     console.log('Forward chaining algorithm took ',iterations - 1,' iterations')
+        console.log('******************************************************')
+    console.log('******************************************************')
+    console.log('Final Knowledge')
+    console.log('******************************************************')
+    console.log('******************************************************')
+    console.log(this.knowledgeBase.getKnowledgeBase())
+    
 
 }   
 

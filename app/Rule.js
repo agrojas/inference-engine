@@ -28,15 +28,12 @@ Rule.prototype.validateFields = function(knowledgeBase) {
 	for (var field of this.fields) {
 		if (knowledgeBase[field] != undefined)
 			return true;
-			// throw new Error("Rule does not apply to subject ");
 	}
 	return false;
 }
 
 Rule.prototype.hasConsequence = function(testConsequence) {
-    var currentConsequence = {};
-	this.consecuence.apply(currentConsequence);
-	return currentConsequence == testConsequence
+	return (this.consecuence.equals(testConsequence))
 }
 
 

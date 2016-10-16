@@ -5,10 +5,12 @@ var KnowledgeBase = require('./KnowledgeBase');
 
 var RulesManager = function (executionType) {
 
-	var algorithmFactory = new AlgorithmFactory(executionType);	
+	var algorithmFactory = new AlgorithmFactory(executionType);
+	this.executionType = executionType;	
 	this.ruleSet = new RuleSet();
 	this.knowledgeBase = new KnowledgeBase();
 	this.algorithm = algorithmFactory.getAlgorithm();
+	this.hypothesis = undefined;
 }
 
 RulesManager.prototype.setRules = function(rules){ 
@@ -17,10 +19,14 @@ RulesManager.prototype.setRules = function(rules){
 	}
 }
 
-RulesManager.prototype.setKnowledgeBase = function(knowledgeBase){ 
+RulesManager.prototype.setKnowledgeBase = function(knowledgeBase){
 	for (var knowledge of knowledgeBase) {
 		this.knowledgeBase.addKnowledge(knowledge);
 	}
+}
+
+RulesManager.prototype.setHypothesis = function(hypothesis){ 
+	this.hypothesis = hypothesis;
 }
 
 RulesManager.prototype.getRuleSet = function(){ 
@@ -34,7 +40,14 @@ RulesManager.prototype.getKnowledgeBase = function(){
 RulesManager.prototype.run = function(){ 
 	this.algorithm.setRuleSet(this.ruleSet);
 	this.algorithm.setKnowledgeBase(this.knowledgeBase);
+	//TODO: Refactor
+	if (this.executionType == "b") {
+		this.algorithm.setHypothesis(this.hypothesis);
+	}
+
 	return this.algorithm.run();
+
+
 }
 
 module.exports = RulesManager;

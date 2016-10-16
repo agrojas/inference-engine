@@ -7,6 +7,10 @@ function RuleSet() {
     this.rulesTree = {};
 }
 
+RuleSet.prototype.getRules = function(){
+    return this.rules;
+}
+
 RuleSet.prototype.addRule = function(data){
     
     if (this.rules[data.rule.name] != undefined) {

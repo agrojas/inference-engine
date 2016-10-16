@@ -6,9 +6,11 @@ function Consecuence(fieldName, value) {
 }
 
 Consecuence.prototype.apply = function(subject) {
-	console.log('subject',subject);
 	subject[this.fieldName] = this.value;
-	console.log('subject',subject);
+}
+
+Consecuence.prototype.equals = function(consecuence) {
+	return ((this.fieldName == Object.keys(consecuence)[0]) && (this.value == Object.values(consecuence)[0]))
 }
 
 module.exports = Consecuence;
