@@ -1,9 +1,5 @@
 [
 	{
-		"animal": "dog",
-		"legsQuantity": "4",
-		"locomotion": "quadruped",
-		"class": "mammal",
-		"skin": "hair"
+		"animal": "dog"
 	}
 ]
