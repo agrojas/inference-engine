@@ -4,7 +4,7 @@
   "description": "inference engine with forward chaining",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js -t f",
     "test": "node test/test-index.js"
   },
   "repository": {

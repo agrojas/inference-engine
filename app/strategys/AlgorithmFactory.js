@@ -4,14 +4,13 @@ var BackwardStrategy = require('./backward-chaining/BackwardStrategy');
 var ForwardStrategy = require('./forward-chaining/ForwardStrategy');
 
 
-var AlgorithmFactory = function(executionType) {	
-	this.executionType = executionType;
+var AlgorithmFactory = function() {	
 }
 
-AlgorithmFactory.prototype.getAlgorithm = function(){
-	if (this.executionType == "b") {
+AlgorithmFactory.prototype.getAlgorithm = function(type){
+	if (type == "b") {
 		return new BackwardStrategy();
-	} else if (this.executionType == "f") {
+	} else if (type == "f") {
 		return new ForwardStrategy();
 	} 
 	throw new Error("Invalid Algorithm Type")

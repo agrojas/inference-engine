@@ -13,7 +13,7 @@ function loadFile(file_path) {
     return JSON.parse(contents);
 }
 
-RulesLoader.prototype.loadRules = function(file_path){ 
+RulesLoader.prototype.loadRules = function(file_path){
     this.data = loadFile(file_path);
 
 }

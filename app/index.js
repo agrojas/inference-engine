@@ -25,15 +25,16 @@ function main () {
 		return;
 	}
 	validateArgs(options);
-
-	var rulesLoader = new RulesLoader();
-	var rulesManager = new RulesManager(options.executionType);
 	/**/
-
+	var rulesLoader = new RulesLoader();
+	var rulesManager = new RulesManager();
+	/**/
 	rulesLoader.loadRules(options.rulesPath);
 	rulesLoader.loadKnowledgeBase(options.KnowledgeBasePath);
 	rulesLoader.loadHypothesis(options.hypothesisPath);
 	
+	/* */
+	rulesManager.changeAlgorithmType(options.executionType);
 	rulesManager.setRules(rulesLoader.getRules());
 	rulesManager.setKnowledgeBase(rulesLoader.getInitialKnowledgeBase());
 	rulesManager.setHypothesis(rulesLoader.getHypothesis());
